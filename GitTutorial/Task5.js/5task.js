@@ -7,3 +7,6 @@ li[1].style.backgroundcolor='yellow';
 
 for(var i=0;i<li.length;i++)
 li[i].style.background = '#f4f4f4';
+// console.log('Hello World')
+// console.log('Bye World')
+
