@@ -1,0 +1,38 @@
+<html>
+    <body>
+        
+        <form onsubmit="savetoLocalStorage(event)">
+            <label>  Name</label>
+            <input type="Text" name="username" />
+            <label >EmailId</label>
+            <input type="email" name="emailId" />
+            <label >Phone Number</label>
+            <input type="tel" name="phonenumber" />
+            <button type="submit">submit</button>
+        </form>
+        <ul id="ListOfUsers"></ul>
+        <script>
+            function savetoLocalStorage(event){
+                event.preventDefault();
+                const name=event.target.username.value;
+                const email=event.target.emailId.value
+                const phonenumber=event.target.phonenumber.value
+                // localStorage.setItem('name',name);
+                // localStorage.setItem('email',email)
+                // localStorage.setItem('phonenumber',phonenumber);
+                const obj={
+                    name,
+                    email,
+                    phonenumber
+                }
+                localStorage.setItem('userDetails',JSON.stringify(obj));
+                showNewUserOnScreen(obj)
+            }
+            function showNewUserOnScreen(user){
+                const parentNode=document.getElementById("ListOfUsers")
+                const childHTML= `<li> ${user.name} - ${user.email} </li>`
+                parentNode.innnerHTML=parentNode.innerHTML+childHTML
+            }
+        </script>
+    </body>
+</html> 
